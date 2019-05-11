@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Listing processes using deleted or old version of system files...
+Exec = /bin/sh -c "lsof +c 15 -w +aL1 / | awk '$10 !~ /^\/(var|home|run)/ {printf \"%-15s %-6s %-18s %s\n\", $1,$2,$3,$10}'"
+When = PostTransaction

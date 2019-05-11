@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Reviewing .pacnew and .pacsave files
+Exec = /bin/sh -c 'yes "v s" | tr " " "\n" | DIFFPROG=/usr/share/libalpm/scripts/pacdiff_diffprog pacdiff'
+When = PostTransaction
+Depends = git
+Depends = pacman-contrib
