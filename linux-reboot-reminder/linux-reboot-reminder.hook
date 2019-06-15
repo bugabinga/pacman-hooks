@@ -1,7 +1,10 @@
 [Trigger]
 Operation = Upgrade
+Operation = Install
 Type = Package
 Target = linux
+Target = linux-hardened
+Target = linux-zen
 
 [Action]
 Description = Remember to reboot after kernel update
